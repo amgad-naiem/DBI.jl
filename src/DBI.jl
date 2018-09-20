@@ -1,3 +1,6 @@
+using Sockets
+using Printf
+
 module DBI
     import Compat: @compat, String
 
@@ -40,15 +43,15 @@ module DBI
         error("DBI API not fully implemented")
     end
 
-    function Base.connect{T<:DatabaseSystem}(::Type{T}, args::Any...)
+    function Base.connect(::Type{T}, args::Any...) where T <: DatabaseSystem
         error("DBI API not fully implemented")
     end
 
-    function Base.connect{T<:DatabaseSystem}(
+    function Base.connect(
         f::Function,
         ::Type{T},
         args::Any...
-    )
+    ) where {T <: DatabaseSystem}
         conn = connect(T, args...)
 
         try
