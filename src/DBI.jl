@@ -21,7 +21,7 @@ module DBI
     @compat abstract type DatabaseHandle end
     @compat abstract type StatementHandle end
 
-    immutable DatabaseColumn
+    struct DatabaseColumn
         name::String
         datatype::DataType
         length::Int
@@ -31,7 +31,7 @@ module DBI
         autoincrement::Bool
     end
 
-    immutable DatabaseTable
+    struct DatabaseTable
         name::String
         columns::Vector{DatabaseColumn}
     end
