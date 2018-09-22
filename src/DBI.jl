@@ -1,5 +1,5 @@
 # using Sockets
-using Printf
+# using Printf
 
 module DBI
     import Compat: @compat, String
@@ -118,7 +118,7 @@ module DBI
         return
     end
 
-    function Printf.show(io::IO, col::DatabaseColumn)
+    function Base.show(io::IO, col::DatabaseColumn)
         @printf io "Name: `%s`\n" col.name
         @printf io "Type: %s\n" col.datatype
         @printf io "Length: %d\n" col.length
