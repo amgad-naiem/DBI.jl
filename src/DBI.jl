@@ -1,4 +1,4 @@
-using Sockets
+# using Sockets
 using Printf
 
 module DBI
@@ -43,11 +43,11 @@ module DBI
         error("DBI API not fully implemented")
     end
 
-    function Sockets.connect(::Type{T}, args::Any...) where T <: DatabaseSystem
+    function Base.connect(::Type{T}, args::Any...) where T <: DatabaseSystem
         error("DBI API not fully implemented")
     end
 
-    function Sockets.connect(
+    function Base.connect(
         f::Function,
         ::Type{T},
         args::Any...
