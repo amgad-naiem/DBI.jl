@@ -43,11 +43,11 @@ module DBI
         error("DBI API not fully implemented")
     end
 
-    function Base.connect(::Type{T}, args::Any...) where T <: DatabaseSystem
+    function Sockets.connect(::Type{T}, args::Any...) where T <: DatabaseSystem
         error("DBI API not fully implemented")
     end
 
-    function Base.connect(
+    function Sockets.connect(
         f::Function,
         ::Type{T},
         args::Any...
@@ -118,7 +118,7 @@ module DBI
         return
     end
 
-    function Base.show(io::IO, col::DatabaseColumn)
+    function Printf.show(io::IO, col::DatabaseColumn)
         @printf io "Name: `%s`\n" col.name
         @printf io "Type: %s\n" col.datatype
         @printf io "Length: %d\n" col.length
